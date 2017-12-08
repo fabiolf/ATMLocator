@@ -10,6 +10,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+/**
+ * Model class to hold a Location. Created as per the JSON object returned by
+ * the ING service using http://www.jsonschema2pojo.org/ tool.
+ * 
+ * @author Fabio Fonseca
+ *
+ */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "address", "distance", "type" })
 public class Location {
