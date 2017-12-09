@@ -1,0 +1,16 @@
+<div ng-show="firstViewVisualization">
+	<h1>Dutch ING ATM Locator</h1>
+	<p>Just type a city name above and you will get a list of locations where an ING ATM can be found.</p>
+	<p>You can switch from the list view to a nice map view by selecting the map icon found at the right of the navigation bar.</p>
+</div>
+
+<div ng-show="firstViewVisualization != true">
+<table>
+  <thead>
+    <tr><td>Street</td><td>House Number</td><td>Postal Code</td></tr>
+  </thead>
+  <tbody ng-repeat="entry in ATMList">
+    <tr><td>{{entry.address.street}}</td><td>{{entry.address.housenumber}}</td><td>{{entry.address.postalcode}}</td></tr>
+  </tbody>
+</table>
+</div>
