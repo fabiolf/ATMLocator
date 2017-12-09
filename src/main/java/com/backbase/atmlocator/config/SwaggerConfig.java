@@ -1,4 +1,4 @@
-package com.backbase.atmlocator;
+package com.backbase.atmlocator.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
