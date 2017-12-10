@@ -9,7 +9,7 @@ angular.module('ATMLocatorApp').controller('MainCtrl', ['$scope', '$location', '
   $scope.firstViewVisualization = true;
 
   // get a list of cities and store in a variable
-  $http.get('http://localhost:8080/api/list').
+  $http.get('http://localhost:8080/atmlocator-0.1.0/api/list').
 		then(function(response) {
 			$scope.cities = response.data;
 			$scope.cityNameDisabled = false;
@@ -23,7 +23,7 @@ angular.module('ATMLocatorApp').controller('MainCtrl', ['$scope', '$location', '
   // get a list of ATM locations given a city name
   var getATMList = function(cityName) {
 	  console.log('getATMList');
-	   $http.get('http://localhost:8080/api/list/' + cityName).
+	   $http.get('http://localhost:8080/atmlocator-0.1.0/api/list/' + cityName).
         then(function(response) {
 			if (response.data.length == 0) {
 				alert("City not found!");
@@ -63,15 +63,18 @@ angular.module('ATMLocatorApp').controller('MainCtrl', ['$scope', '$location', '
 	  if (view == "list") {
 		  if (viewMode != 0) {
 			  viewMode = 0;
-			  $location.path(view);
+			  $location.path("atmlocator-0.1.0/" + view);
 		  }
 	  } else {
+		  console.log("switching to map view");
 		  if (viewMode != 1) {
 			  viewMode = 1;
-			  $location.path(view);
+			  $location.path("atmlocator-0.1.0/" + view);
 		  }
 	  }
   }
+  
+ // $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
   
   
 }]);

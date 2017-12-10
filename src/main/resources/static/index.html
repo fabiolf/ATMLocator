@@ -4,7 +4,7 @@
   <title>Dutch ATM Locator by Fabio</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+  <!--<base href="/atmlocator-0.1.0/" /> -->
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <!-- retrieved from https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css to speed up loading process -->
   <link rel="stylesheet" href="css/bootstrap.min.css"/>
@@ -63,18 +63,20 @@
 	</div>
 
 	<!-- retrieved angular libs from https://code.angularjs.org/1.6.7/ to speed up loading process -->
-  <script src="lib/angular-1.6.7/angular.min.js"></script>
+	<script src="lib/angular-1.6.7/angular.min.js"></script>
   <script src="lib/angular-1.6.7/angular-resource.min.js"></script>
   <script src="lib/angular-1.6.7/angular-route.min.js"></script>
+  
   <!-- jQuery 3.1.1 retrieved from https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js -->
 <script src="lib/jquery-3.1.1/jquery.min.js"></script>
 <!-- retrieved bootstrap from https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js -->
 <script src="lib/bootstrap-3.3.7/bootstrap.min.js"></script>
-  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-<!--  <script src="lib/typeahead.bundle.js"></script>
-  <script src="lib/angular-typeahead.min.js"></script> -->
+
+<script src="https://maps.google.com/maps/api/js?v=3&key=AIzaSyCSzhKJbf1aacQMk4lYO-vobZW_yd9a86I&libraries=placeses,visualization,drawing,geometry,places"></script>
+
+<!--  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>   -->
   <script src="lib/bootstrap-ui-2.5.0/ui-bootstrap-tpls-2.5.0.min.js"></script>
-  <script src="lib/ng-map.min.js"></script>
+  <script src="lib/ng-map.min.js"></script> 
   <script src="js/ATMLocatorApp.js"></script>
   <script src="js/ATMLocatorRoutes.js"></script>
   <script src="js/MainCtrl.js"></script>
