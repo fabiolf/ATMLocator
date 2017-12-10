@@ -7,19 +7,32 @@ angular.module('ATMLocatorApp').controller('MainCtrl', ['$scope', '$location', '
 
   // first thing, get a list of cities and store in a variable
   $http.get('http://localhost:8080/api/list').
-        then(function(response) {
-            $scope.cities = response.data;
+		then(function(response) {
+			$scope.cities = response.data;
 			$scope.cityNameDisabled = false;
 			$scope.cityNameTextBoxPlaceholder = "Type a city name";
-        });
+		});
   
 //  $scope.cityTextBoxValue = "";
-  
+   
   var getATMList = function(cityName) {
 	   $http.get('http://localhost:8080/api/list/' + cityName).
         then(function(response) {
-            $scope.ATMList = response.data;
-			$scope.firstViewVisualization = false;
+			if (response.data.length == 0) {
+				console.log('no results');
+				alert("City not found!");
+			} else {
+				$scope.ATMList = response.data;
+				// adding lat & lng to a list of values on each address to prepare data for map visualization
+				//i = 0;
+				console.log($scope.ATMList.length);
+				angular.forEach($scope.ATMList, function(ATMList){
+					ATMList.latlng = [ATMList.address.geoLocation.lat, ATMList.address.geoLocation.lng];
+					//$scope.cmVisibilityControl[i] = false;
+					//i++;
+				});
+				$scope.firstViewVisualization = false;
+			}
         });
   }
   
@@ -49,5 +62,6 @@ angular.module('ATMLocatorApp').controller('MainCtrl', ['$scope', '$location', '
 		  }
 	  }
   }
+  
   
 }]);

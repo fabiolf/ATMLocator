@@ -5,9 +5,9 @@
 </div>
 
 <div ng-show="firstViewVisualization != true">
-<table>
+<table class="table">
   <thead>
-    <tr><td>Street</td><td>House Number</td><td>Postal Code</td></tr>
+    <tr class="active"><td>Street</td><td>House Number</td><td>Postal Code</td></tr>
   </thead>
   <tbody ng-repeat="entry in ATMList">
     <tr><td>{{entry.address.street}}</td><td>{{entry.address.housenumber}}</td><td>{{entry.address.postalcode}}</td></tr>

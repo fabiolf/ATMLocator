@@ -1,5 +1,13 @@
-<ng-map zoom="11" center="{{selectedCityName + ', Netherlands'}}" style="height: 600px;">
-  <marker position="[40.74, -74.18]" />
-  <!-- <shape name="circle" radius="400" center="[40.74,-74.18]" radius="4000" /> -->
+<ng-map zoom="10" center="{{selectedCityName + ', Netherlands'}}" style="height: 600px;" ng-controller="MapCtrl">
+  <marker position="[{{p.latlng[0]}}, {{p.latlng[1]}}]" ng-repeat="p in ATMList track by $index"
+     on-click="markerClick($index)" ></marker>
+<!--  <custom-marker id="cm-{{$index}}" position="[{{p.latlng[0]}}, {{p.latlng[1]}}]" 
+     ng-repeat="p in ATMList track by $index" on-click="hideCustomMarker()" ng-show="divVisibility">
+  <div style="background-color: #ffffff; border: 1px black solid;">
+	<img width="40" src="img/INGATM.jpg" align="left" /> ING ATM Machine <br/>
+	Address: {{p.address.street}}, {{p.address.housenumber}}, {{p.address.city}}<br/>
+	<br/>
+  </div>
+  </custom-marker> -->
   <control name="atmMap" opened="true" />
 </ng-map>
