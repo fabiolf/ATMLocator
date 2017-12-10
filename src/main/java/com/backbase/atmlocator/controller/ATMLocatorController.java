@@ -46,44 +46,31 @@ public class ATMLocatorController {
 
     @RequestMapping(value = "/api/list", method = { POST, GET }, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<String>> listAllCities() throws JsonProcessingException {
-//    public String listAllCities() throws JsonProcessingException {
         // extract the unique cities names from the list of all locations
         ArrayList<Location> locationList = consumer.getAllINGATMList();
         if (locationList == null) {
             // some error (already logged) occurred while retrieving data from
             // ING service. So, return an empty response.
-//            return "";
             return new ResponseEntity<>(null, HttpStatus.OK);
         }
         ArrayList<String> cities = new ArrayList<String>(Arrays.asList(locationService.getUniqueCityNames(locationList)));
         logger.info("Returned ".concat(Integer.toString(cities.size())).concat(" cities!"));
         // prepare the response as a JSON object
         return new ResponseEntity<>(cities, HttpStatus.OK);
-//        ObjectMapper mapper = new ObjectMapper();
-//        return mapper.writeValueAsString(cities);
-        
-
-        
     }
 
     @RequestMapping(value = "/api/list/{cityName}", method = { POST, GET }, produces = MediaType.APPLICATION_JSON_VALUE)
-//    public String listATMByCity(@PathVariable String cityName) throws JsonProcessingException {
     public ResponseEntity<List<Location>> listATMByCity(@PathVariable String cityName) throws JsonProcessingException {
         // extract the unique cities names from the list of all locations
         ArrayList<Location> locationList = consumer.getAllINGATMList();
         if (locationList == null) {
             // some error (already logged) occurred while retrieving data from
             // ING service. So, return an empty response.
-//            return "";
             return new ResponseEntity<>(null, HttpStatus.OK);
         }
         ArrayList<Location> locations = locationService.filterLocationByCity(locationList, cityName);
         logger.info("Returned ".concat(Integer.toString(locations.size())).concat(" locations!"));
         return new ResponseEntity<>(locations, HttpStatus.OK);
-        // create a JSON response and return
-//        ObjectMapper mapper = new ObjectMapper();
-        // this required "jackson-databind" dependency to be set in the POM file
-//        return mapper.writeValueAsString(locations);
 
     }
 }

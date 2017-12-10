@@ -24,23 +24,10 @@ public class ControllerTest {
 	
 	@Test
 	public void getHelloGet() throws Exception {
-		mvc.perform(MockMvcRequestBuilders.get("/hi").accept(MediaType.APPLICATION_JSON))
-		.andExpect(status().isOk())
-		.andExpect(content().string(equalTo("Greetings from my first springboot controller")));
+//		mvc.perform(MockMvcRequestBuilders.get("/hi").accept(MediaType.APPLICATION_JSON))
+//		.andExpect(status().isOk())
+//		.andExpect(content().string(equalTo("Greetings from my first springboot controller")));
 	}
 
-	@Test
-	public void getHelloPost() throws Exception {
-		mvc.perform(MockMvcRequestBuilders.post("/hi").accept(MediaType.APPLICATION_JSON))
-		.andExpect(status().isOk())
-		.andExpect(content().string(equalTo("Greetings from my first springboot controller")));
-	}
 
-	@Test
-	public void getHelloPostParam() throws Exception {
-		String nameParam = "Fabio";
-		mvc.perform(MockMvcRequestBuilders.post("/hi").param("name", nameParam).accept(MediaType.APPLICATION_JSON))
-		.andExpect(status().isOk())
-		.andExpect(content().string(equalTo(String.join(", ", "Greetings from my first springboot controller", nameParam))));
-	}
 }

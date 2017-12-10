@@ -29,7 +29,8 @@ angular.module('ATMLocatorApp').controller('MainCtrl', ['$scope', '$location', '
 				alert("City not found!");
 			} else {
 				$scope.ATMList = response.data;
-				// adding lat & lng to a list of values on each address to prepare data for map visualization
+				// adding lat & lng to a list of values on each address to
+				// prepare data for map visualization
 				angular.forEach($scope.ATMList, function(ATMList){
 					ATMList.latlng = [ATMList.address.geoLocation.lat, ATMList.address.geoLocation.lng];
 				});
@@ -74,7 +75,10 @@ angular.module('ATMLocatorApp').controller('MainCtrl', ['$scope', '$location', '
 	  }
   }
   
- // $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
-  
-  
+	$scope.markerClick = function(evt, objIndex) {
+		msg = "Address: " + $scope.ATMList[objIndex].address.street + ", " + $scope.ATMList[objIndex].address.housenumber +
+			", " + $scope.ATMList[objIndex].address.city + ".";
+		alert(msg);
+	}
+    
 }]);

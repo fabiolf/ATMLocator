@@ -1,1 +1,1 @@
-var atmLocatorApp = angular.module('ATMLocatorApp',['ngRoute','ngResource','ngMap','ui.bootstrap']);
+var atmLocatorApp = angular.module('ATMLocatorApp', [ 'ngRoute', 'ngResource', 'ngMap', 'ui.bootstrap' ]);
