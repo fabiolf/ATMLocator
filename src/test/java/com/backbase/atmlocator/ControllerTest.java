@@ -23,11 +23,13 @@ public class ControllerTest {
 	private MockMvc mvc;
 	
 	@Test
-	public void getHelloGet() throws Exception {
+	public void healthTest() throws Exception {
 		mvc.perform(MockMvcRequestBuilders.get("/health").accept(MediaType.APPLICATION_JSON))
 		.andExpect(status().isOk())
 		.andExpect(content().string(equalTo("{\"status\":\"UP\"}")));
 	}
 
+	// implement the other tests to get city names and atms for one city
+	// but i need to provide a smaller data set
 
 }
