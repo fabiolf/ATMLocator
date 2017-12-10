@@ -7,7 +7,7 @@
 <div ng-show="firstViewVisualization != true">
 <table class="table">
   <thead>
-    <tr class="active"><td>Street</td><td>House Number</td><td>Postal Code</td></tr>
+    <tr class="active"><td><strong>Street</strong></td><td><strong>House Number</strong></td><td><strong>Postal Code</strong></td></tr>
   </thead>
   <tbody ng-repeat="entry in ATMList">
     <tr><td>{{entry.address.street}}</td><td>{{entry.address.housenumber}}</td><td>{{entry.address.postalcode}}</td></tr>

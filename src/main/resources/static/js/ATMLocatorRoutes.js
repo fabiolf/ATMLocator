@@ -3,11 +3,11 @@ angular.module('ATMLocatorApp').config(['$routeProvider', function($routeProvide
   $routeProvider
     .when('/list',{
       templateUrl: '/view/list.html',
-      controller: 'ListCtrl'
+      //controller: 'ListCtrl'
     })
 	.when('/map',{
       templateUrl: '/view/map.html',
-	  controller: 'MapCtrl'
+	  //controller: 'MapCtrl'
     })
     .otherwise(
     { redirectTo: '/list'}

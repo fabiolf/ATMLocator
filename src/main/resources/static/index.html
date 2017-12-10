@@ -32,14 +32,7 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			  <form class="navbar-form navbar-left" autocomplete="off">
 				<div class="form-group">
-<!--				  <input id="cityNameTextBox" type="text" class="form-control" ng-model="cityTextBoxValue" placeholder="{{cityNameTextBoxPlaceholder}}" ng-disabled="cityNameDisabled">  -->
 				  <input id="cityNameTextBox" type="text" class="form-control" ng-model="cityTextBoxValue" placeholder="{{cityNameTextBoxPlaceholder}}" uib-typeahead="city for city in cities | filter:$viewValue | limitTo:8" ng-disabled="cityNameDisabled"> 
-<!--				  <input type="text" ng-model="selected" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control"> -->
-	<!--		<input type="text" ng-model="asyncSelected" placeholder="Locations loaded via $http" uib-typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control">
-    <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
-    <div ng-show="noResults">
-      <i class="glyphicon glyphicon-remove"></i> No Results Found
-    </div> -->
 				</div>
 		        <button type="submit" class="btn btn-default" ng-click="citySelected()">Go</button>
 			  </form>
@@ -85,7 +78,6 @@
   <script src="js/ATMLocatorApp.js"></script>
   <script src="js/ATMLocatorRoutes.js"></script>
   <script src="js/MainCtrl.js"></script>
-  <script src="js/ListCtrl.js"></script>
-  <script src="js/MapCtrl.js"></script>
+
 </body>
 </html>

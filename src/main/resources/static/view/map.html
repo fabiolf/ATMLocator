@@ -1,4 +1,4 @@
-<ng-map zoom="10" center="{{selectedCityName + ', Netherlands'}}" style="height: 600px;" ng-controller="MapCtrl">
+<ng-map zoom="12" center="{{selectedCityName + ', Netherlands'}}" style="height: 600px;" >
   <marker position="[{{p.latlng[0]}}, {{p.latlng[1]}}]" ng-repeat="p in ATMList track by $index"
      on-click="markerClick($index)" ></marker>
 <!--  <custom-marker id="cm-{{$index}}" position="[{{p.latlng[0]}}, {{p.latlng[1]}}]" 
