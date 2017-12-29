@@ -1,7 +1,6 @@
 package com.backbase.atmlocator.controller;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,7 +43,7 @@ public class ATMLocatorController {
 
     private static final Logger logger = LoggerFactory.getLogger(ATMLocatorController.class);
 
-    @RequestMapping(value = "/api/list", method = { POST, GET }, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/api/list", method = { GET }, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<String>> listAllCities() throws JsonProcessingException {
         // extract the unique cities names from the list of all locations
         ArrayList<Location> locationList = consumer.getAllINGATMList();
@@ -59,7 +58,7 @@ public class ATMLocatorController {
         return new ResponseEntity<>(cities, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/api/list/{cityName}", method = { POST, GET }, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/api/list/{cityName}", method = { GET }, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Location>> listATMByCity(@PathVariable String cityName) throws JsonProcessingException {
         // extract the unique cities names from the list of all locations
         ArrayList<Location> locationList = consumer.getAllINGATMList();
